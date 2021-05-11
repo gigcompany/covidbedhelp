@@ -4,8 +4,8 @@ var app = new Vue({
     el: '#app',
     data: {
         aadharNumber: "",
-        patientsName:"",
-        attenderPhone:"",
+        patientsName: "",
+        attenderPhone: "",
         requestStatus: "",
         statusMessage: "",
         statusUpdateTime: "",
@@ -31,7 +31,7 @@ var app = new Vue({
             this.statusMessage = "Testing 1";
             this.requestStatus = "Testing 2";
             //   this.dataLoaded = true;
-            let patientsUID = this.patientsName.replaceAll(" ","*").replaceAll(".","-") + "-+91" + this.attenderPhone
+            let patientsUID = this.patientsName.replaceAll(" ", "*").replaceAll(".", "-") + "-+91" + this.attenderPhone
             const requestOptions = {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
@@ -39,7 +39,7 @@ var app = new Vue({
             };
             const response = await fetch("https://us-central1-chennaicovidbedhelp.cloudfunctions.net/getBedRequestStatus", requestOptions);
             const data = await response.json();
-            console.log("Request status",data);
+            console.log("Request status", data);
             if (data.requestStatus) {
                 this.requestStatus = data.requestStatus;
             }
@@ -67,6 +67,11 @@ var app = new Vue({
                     this.isStep2Yes = true;
                     break;
                 case "Volunteer Assigned":
+                    this.isStep1Yes = true;
+                    this.isStep2Yes = true;
+                    this.isStep3Yes = true;
+                    break;
+                case "Attender Not Reachable":
                     this.isStep1Yes = true;
                     this.isStep2Yes = true;
                     this.isStep3Yes = true;
@@ -100,12 +105,12 @@ var app = new Vue({
         }
     },
     mounted() {
-        let uri = window.location.search.substring(1);
-        let params = new URLSearchParams(uri);
-        console.log(params.get("a"));
-        this.aadharNumber = params.get("a");
-        if (this.aadharNumber && this.aadharNumber > 0) {
-            this.getBedRequestStatus();
-        }
+        // let uri = window.location.search.substring(1);
+        // let params = new URLSearchParams(uri);
+        // // console.log(params.get("a"));
+        // // this.aadharNumber = params.get("a");
+        // // if (this.aadharNumber && this.aadharNumber > 0) {
+        // //     this.getBedRequestStatus();
+        // // }
     },
 })
