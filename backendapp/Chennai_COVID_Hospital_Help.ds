@@ -1,6 +1,6 @@
 /*
  * Author       : covidhospitalhelpdesk
- * Generated on : 11-May-2021 15:22:53
+ * Generated on : 11-May-2021 17:43:57
  * Version      : 1.0
  */
  application "Chennai COVID Hospital Help"
@@ -1414,6 +1414,7 @@
 							on right click
 							(
 								View Record   	   
+								Delete   	   
     						)
      			)
 			)
@@ -3681,7 +3682,7 @@
 			{
 				hoursDifference = 0;
 				closureTime = hoursDifference + 1;
-				postURl = "https://hooks.slack.com/services/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";
+				postURl = "slackchannelurlhere";
 				stringMessage = "";
 				if(closureTime <= 1)
 				{

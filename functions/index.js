@@ -74,12 +74,13 @@ exports.masterStatus = functions.https.onRequest((request, response) => {
 exports.googleMapsSearch = functions.https.onRequest((request, response) => {
     cors(request, response, () => {
         // const searchTerm = request.query.searchTerm;
-        var googleMapsUrl = ""
+        var googleMapsUrl = "";
+        var googleMapsKey = "YourKeyHere";
         // var googleMapsUrl = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=" + searchTerm + "&key=AIzaSyBCJXQI-JcKPAfG0ONO_x2D2yo_INuzV7c"
         if (request.query.pagetoken) {
-            googleMapsUrl = "https://maps.googleapis.com/maps/api/place/textsearch/json" + "?pagetoken=" + request.query.pagetoken + "&key=AIzaSyAdW_JTvX1PXbmDrwZIXYNYAGgMa9nIVok";
+            googleMapsUrl = "https://maps.googleapis.com/maps/api/place/textsearch/json" + "?pagetoken=" + request.query.pagetoken + "&key="+ googleMapsKey;
         } else {
-            googleMapsUrl = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=" + request.query.searchTerm + "&key=AIzaSyAdW_JTvX1PXbmDrwZIXYNYAGgMa9nIVok"
+            googleMapsUrl = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=" + request.query.searchTerm + "&key=" + googleMapsKey;
         }
         var options = {
             'method': 'GET',
