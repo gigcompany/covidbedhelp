@@ -71,11 +71,6 @@ var app = new Vue({
                     this.isStep2Yes = true;
                     this.isStep3Yes = true;
                     break;
-                case "Attender Not Reachable":
-                    this.isStep1Yes = true;
-                    this.isStep2Yes = true;
-                    this.isStep3Yes = true;
-                    break;
                 case "Searching for Hospitals":
                     this.isStep1Yes = true;
                     this.isStep2Yes = true;
@@ -93,12 +88,26 @@ var app = new Vue({
                     this.isStep3Yes = true;
                     this.isStep4Yes = true;
                     break;
+                case "Attender Not Reachable":
+                    this.isStep1Yes = true;
+                    this.isStep2Yes = true;
+                    this.isStep3Yes = true;
+                    break;
                 case "Needs to Shift to New Hospital":
                     this.isStep1Yes = true;
                     this.isStep2Yes = true;
                     this.isStep3Yes = true;
                     break;
+                case "Invalid / Duplicate Request":
+                    this.isStep1Yes = true;
+                    this.isStep2Yes = true;
+                    break;
+                case "Bed Request Cancelled":
+                    this.isStep1Yes = true;
+                    this.isStep2Yes = true;
+                    break;
                 default:
+                    this.isStep1Yes = true;
                     break;
             }
             // console.log("Response data", data);
