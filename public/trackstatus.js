@@ -16,7 +16,8 @@ var app = new Vue({
         isStep1Yes: false,
         isStep2Yes: false,
         isStep3Yes: false,
-        isStep4Yes: false
+        isStep4Yes: false,
+        isRequestCancelled:false
     },
     methods: {
         async getBedRequestStatus() {
@@ -28,6 +29,7 @@ var app = new Vue({
             this.isStep2Yes = false;
             this.isStep3Yes = false;
             this.isStep4Yes = false;
+            this.isRequestCancelled = false;
             this.statusMessage = "Testing 1";
             this.requestStatus = "Testing 2";
             //   this.dataLoaded = true;
@@ -105,6 +107,8 @@ var app = new Vue({
                 case "Bed Request Cancelled":
                     this.isStep1Yes = true;
                     this.isStep2Yes = true;
+                    this.isStep4Yes = true;
+                    this.isRequestCancelled = true;
                     break;
                 default:
                     this.isStep1Yes = true;

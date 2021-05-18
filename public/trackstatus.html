@@ -208,13 +208,25 @@
                                 <h5 class="icon-text mbr-black mbr-fonts-style display-7 btn btn-no" v-if="!isStep3Yes">No</h5>
                             </div>
                         </div>
-                        <div class="item mbr-flex">
+                        <div class="item mbr-flex" v-if="!isRequestCancelled">
                             <div class="icon-box">
                                 <span class="step-number mbr-fonts-style display-5">4</span>
                             </div>
                             <div class="text-box">
                                 <h4 class="icon-title card-title mbr-black mbr-fonts-style display-7">
                                     <strong>Bed Identified</strong>
+                                </h4>
+                                <h5 class="icon-text mbr-black mbr-fonts-style display-7 btn btn-yes" v-if="isStep4Yes">Yes</h5>
+                                <h5 class="icon-text mbr-black mbr-fonts-style display-7 btn btn-no" v-if="!isStep4Yes">No</h5>
+                            </div>
+                        </div>    
+                        <div class="item mbr-flex" v-if="isRequestCancelled">
+                            <div class="icon-box">
+                                <span class="step-number mbr-fonts-style display-5">4</span>
+                            </div>
+                            <div class="text-box">
+                                <h4 class="icon-title card-title mbr-black mbr-fonts-style display-7">
+                                    <strong>Bed Request Cancelled</strong>
                                 </h4>
                                 <h5 class="icon-text mbr-black mbr-fonts-style display-7 btn btn-yes" v-if="isStep4Yes">Yes</h5>
                                 <h5 class="icon-text mbr-black mbr-fonts-style display-7 btn btn-no" v-if="!isStep4Yes">No</h5>
